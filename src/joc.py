@@ -1,8 +1,11 @@
-import pygame,os,sys
+import pygame
+import os
+import sys
+import easygui
 from pygame.locals import *
 from creeps_try import MoveRasp
 from portal import DrawPortal
-import easygui
+from configure import DeviceConfigure
 
 
 class Game:
@@ -29,6 +32,8 @@ class Game:
 				(1, 1),	\
 				5,
 				self.devices)
+		self.devconf = DeviceConfigure(self.devices)		
+
 		# init portals
 		i = 0
 		for device in self.devices.my_list:
@@ -73,4 +78,4 @@ class Game:
 			for event in events:
                         	if event.type == KEYDOWN:
 					if event.key == K_RETURN:
-						easygui.msgbox(self.rasp.portal_collision[1].get_info(), title=self.rasp.portal_collision[1].get_name())
+						self.devconf.popup(self.rasp.portal_collision[1])	
