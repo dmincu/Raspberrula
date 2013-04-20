@@ -13,7 +13,7 @@ class Game:
 		self.devices = devices
 		self.SCREEN_WIDTH = 760
 		self.SCREEN_HEIGHT = 570
-		self.RASP_FILENAME = "rasp.png"
+		self.RASP_FILENAME = "../images/rasp.png"
 		self.BG_COLOR = 150, 150, 80
 		self.window = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT)) 
 		pygame.display.set_caption('Raspberrula')
@@ -34,7 +34,7 @@ class Game:
 		for device in self.devices.my_list:
 			portal_coord = device.get_portal_coord()
 			self.portals.append(DrawPortal(self.window,
-						"portal.png",
+						"../images/portal.png",
 						portal_coord,
 						))
 	
