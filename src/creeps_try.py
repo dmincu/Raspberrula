@@ -32,6 +32,8 @@ class MoveRasp(Sprite):
 	def collisions(self):
 		self.collision = 0
 		i = 0
+
+		self.portal_collision = [0, None]
 		for device in self.devices:
 			upper_limit = device.get_upper()
 			lower_limit = device.get_lower()
@@ -63,7 +65,6 @@ class MoveRasp(Sprite):
                                    ):
                                         self.portal_collision[0] = 1
 					self.portal_collision[1] = device
-					print "Coliziune cu ursul"
 			i += 1
 	
 	def blitme(self):

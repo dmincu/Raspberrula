@@ -2,6 +2,7 @@ import pygame,os,sys
 from pygame.locals import *
 from creeps_try import MoveRasp
 from portal import DrawPortal
+import easygui
 
 
 class Game:
@@ -67,4 +68,9 @@ class Game:
 			self.rasp.move_down()
 		if keys[K_UP]:
 			self.rasp.move_up()
-				
+
+		if (self.rasp.portal_collision[0] == 1):
+			for event in events:
+                        	if event.type == KEYDOWN:
+					if event.key == K_RETURN:
+						easygui.msgbox(self.rasp.portal_collision[1].get_info(), title=self.rasp.portal_collision[1].get_name())
