@@ -15,7 +15,7 @@ if __name__ == "__main__":
 	size = (width, height)
 	screen = pygame.display.set_mode(size)
 	pygame.display.set_caption("Raspberrula")
-	backgroundImg = pygame.image.load("../Images/Raspberrula Intro.jpg").convert()
+	backgroundImg = pygame.image.load("../images/Raspberrula Intro.jpg").convert()
 	backgroundImg = pygame.transform.scale(backgroundImg, (width, height))	
 	backgroundRect = backgroundImg.get_rect()	
 
