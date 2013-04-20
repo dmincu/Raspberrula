@@ -14,6 +14,7 @@ class MoveRasp(Sprite):
 		init_direction, speed, devices):
 		
 		Sprite.__init__(self)
+		self.collision = 0
 		self.screen = screen
 		self.speed = speed
 		self.devices = devices.my_list
@@ -28,34 +29,52 @@ class MoveRasp(Sprite):
 		self.pos = vec2d(init_position)
 
 	def collisions(self):
+		self.collision = 0
 		for device in self.devices:
-			print device.get_name()	
+			upper_limit = device.get_upper()
+			lower_limit = device.get_lower()
+			my_pos = self.pos
+			if (self.pos.x > upper_limit[0] and \
+			self.pos.x < lower_limit[0] and \
+			self.pos.y > upper_limit[1] and \
+			self.pos.y < lower_limit[1]):
+				self.collision = 1
+				print "coliziune"		
 
 	def blitme(self):
 		self.screen.blit(self.image, self.pos);	
 
 	def move_down(self):
         	""" Move the raspberry down """
-		displacement = vec2d(0, self.speed)
-		self.pos += displacement
-		self.screen.blit(self.image, self.pos)
+		self.collisions()
+		print self.collision
+		if (self.collision == 0):
+			displacement = vec2d(0, self.speed)
+			self.pos += displacement
+			self.screen.blit(self.image, self.pos)
         def move_up(self):
         	""" Move the raspberry up
         	"""
-		displacement = vec2d(0, -self.speed)
-                self.pos += displacement
-		self.screen.blit(self.image, self.pos)
+		self.collisions()
+		if (self.collision == 0):
+			displacement = vec2d(0, -self.speed)
+                	self.pos += displacement
+			self.screen.blit(self.image, self.pos)
 
         def move_left(self):
         	""" Move the raspberry to left
         	"""
-		displacement = vec2d(-self.speed, 0)
-                self.pos += displacement
-		self.screen.blit(self.image, self.pos)
+		self.collisions()
+		if (self.collision == 0):
+			displacement = vec2d(-self.speed, 0)
+                	self.pos += displacement
+			self.screen.blit(self.image, self.pos)
 
         def move_right(self):
         	""" Move the raspberry to right
 		"""
-		displacement = vec2d(self.speed, 0)
-                self.pos += displacement
-		self.screen.blit(self.image, self.pos)
+		self.collisions()
+		if (self.collision == 0):
+			displacement = vec2d(self.speed, 0)
+                	self.pos += displacement
+			self.screen.blit(self.image, self.pos)
