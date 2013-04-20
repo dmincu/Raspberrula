@@ -24,7 +24,7 @@ class Game:
 				(self.SCREEN_WIDTH / 2,	\
 				self.SCREEN_HEIGHT / 2),	\
 				(1, 1),	\
-				10,
+				5,
 				self.devices)	
 
 	def run(self):
