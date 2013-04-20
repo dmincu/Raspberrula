@@ -14,13 +14,11 @@ class MoveRasp(Sprite):
 		init_direction, speed, devices):
 		
 		Sprite.__init__(self)
-		self.portal_collision = []
+		self.portal_collision = [0, None]
 		self.collision = 0
 		self.screen = screen
 		self.speed = speed
 		self.devices = devices.my_list
-		for device in self.devices:
-			self.portal_collision.append([0, device])
 		self.base_image = pygame.image.load(img_filename).convert_alpha()
 		self.size = (self.base_image.get_width(), self.base_image.get_height())
 		self.base_image = pygame.transform.scale(self.base_image, self.size)
@@ -63,7 +61,8 @@ class MoveRasp(Sprite):
                                     and self.pos.y + 16 > portal_y
                                     and self.pos.y + 16 < portal_y + 36
                                    ):
-                                        self.portal_collision[i][0] = 1
+                                        self.portal_collision[0] = 1
+					self.portal_collision[1] = device
 					print "Coliziune cu ursul"
 			i += 1
 	
