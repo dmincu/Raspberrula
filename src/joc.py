@@ -24,16 +24,19 @@ class Game:
 				(self.SCREEN_WIDTH / 2,	\
 				self.SCREEN_HEIGHT / 2),	\
 				(1, 1),	\
-				10,
+				5,
 				self.devices)	
 
 	def run(self):
+		self.screen.blit(self.rasp_surface, (0,0))
+		self.rasp.blitme()
+		pygame.display.update()
 		while True:
 			self.screen.blit(self.rasp_surface, (0,0))
 			#self.window.fill(self.BG_COLOR)
 			self.input(pygame.event.get())
 			self.rasp.blitme()
-			pygame.display.update()
+			pygame.display.update(Rect((self.rasp.pos.x - 10, self.rasp.pos.y - 10), (80, 80)))
 
 	"""
 	def input(self, events):
@@ -53,12 +56,16 @@ class Game:
 				elif event.key == pygame.K_RIGHT:
 					self.rasp.move_right()
 					print event
+					
 	"""
 
 	def input(self,events):
 		for event in events:
                         if event.type == QUIT:
                                 sys.exit(0)
+			else:
+				print event
+				print self.rasp.pos
 		keys = pygame.key.get_pressed()
 		if keys[K_LEFT]:
 			self.rasp.move_left()
