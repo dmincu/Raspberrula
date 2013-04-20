@@ -1,12 +1,14 @@
 import pygame,os,sys
 from pygame.locals import *
 from creeps_try import MoveRasp
+from portal import DrawPortal
 
 
 class Game:
 
 	def __init__(self, devices):
 		pygame.init()
+		self.portals = []
 		self.devices = devices
 		self.SCREEN_WIDTH = 760
 		self.SCREEN_HEIGHT = 570
@@ -25,16 +27,28 @@ class Game:
 				self.SCREEN_HEIGHT / 2),	\
 				(1, 1),	\
 				5,
-				self.devices)	
-
+				self.devices)
+		# init portals
+		i = 0
+		for device in self.devices.my_list:
+			portal_coord = device.get_portal_coord()
+			self.portals.append(DrawPortal(self.window,
+						"portal.png",
+						portal_coord,
+						))
+	
 	def run(self):
 		self.screen.blit(self.rasp_surface, (0,0))
 		self.rasp.blitme()
+		for portal in self.portals:
+			portal.blitme()
 		pygame.display.update()
 		while True:
 			self.screen.blit(self.rasp_surface, (0,0))
 			#self.window.fill(self.BG_COLOR)
 			self.input(pygame.event.get())
+			for portal in self.portals:
+                        	portal.blitme()
 			self.rasp.blitme()
 			pygame.display.update(Rect((self.rasp.pos.x - 10, self.rasp.pos.y - 10), (80, 80)))
 
