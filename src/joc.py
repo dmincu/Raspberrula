@@ -57,6 +57,7 @@ class Game:
 		for event in events:
                         if event.type == QUIT:
                                 sys.exit(0)
+
 		keys = pygame.key.get_pressed()
 		if keys[K_LEFT]:
 			self.rasp.move_left()
