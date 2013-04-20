@@ -1,55 +1,53 @@
 CVBS:
 	{ Color, Video, Blanking, and Sync }
 	CVBS is just a fancy term for composite video. 
-	It's probably the video cable most familiar to us: it's the yellow RCA cable that often comes with the red and white RCA cables
-		that most people use to connect their video and audio components.
+	It's probably the video cable most familiar to us: it's the yellow RCA cable that often comes with the red and white RCA cables that most people use to connect their video and audio components.
 
 GPIO:
 	{ General Purpose Input Output }
 	GPIO is a generic pin on a chip whose behavior (including whether it is an input or output pin) can be controlled (programmed) by the user at run time.
 	Here you can controle othre devices from your Raspberrula.
 
-Audio Jack 3.5mm:
+JACK:
+	Audio Jack 3.5mm
 	This is the standard output for audio devices.
 
-Status LED's:
+LED:
+	Status LED's
 	ACT: card status
 	PWR: power
 	FDX: on when Ethernet connection is full duplex
 	LNK: on when Ethernet is connected
 	100: on when connection is 100 Mbps off when 10 Mbps
 
-Display DSI:
+DSI:
 	{ Display Serial Interface }
-	It is a specification by the Mobile Industry Processor Interface (MIPI) Alliance aimed at reducing the cost of display sub-systems 
-		in a mobile device. It is commonly targeted at LCD and similar display technologies.
+	It is a specification by the Mobile Industry Processor Interface (MIPI) Alliance aimed at reducing the cost of display sub-systems in a mobile device. It is commonly targeted at LCD and similar display technologies.
 
-CPU/GPU:
+CPUGPU:
 	{ Central Processing Unit / Graphics Processing Unit }
 	CPU: The central component of a computer that executes the instructions.
-	GPU: It is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the 
-		building of images in a frame buffer intended for output to a display. It is a single instruction/multiple data unit.
+	GPU: It is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate the building of images in a frame buffer intended for output to a display. It is a single instruction/multiple data unit.
 
-Ethernet Controller:
+EthernetController:
 	An Ethernet controller is an integrated circuit chip that controls Ethernet communications. Here you control the network connections.
 
 USB:
 	{ Universal Serial Bus }
 	It is an external bus standard that supports data transfer rates of 12 Mbps. It is the most common mode of transfering data.
 
-USB Power:
+USBPower:
 	{ Universal Serial Bus Power }
 	Here you can power up you Raspberrula with a usb cable.
 
 HDMI:
 	{ High-Definition Multimedia Interface }
-	It is a compact audio/video interface for transferring uncompressed video data and compressed/uncompressed digital audio data from an 
-		HDMI-compliant device ("the source device") to a compatible digital audio device, computer monitor, video projector, or digital television.
+	It is a compact audio/video interface for transferring uncompressed video data and compressed/uncompressed digital audio data from an HDMI-compliant device ("the source device") to a compatible digital audio device, computer monitor, video projector, or digital television.
 
-Camera CSI:
+CSI:
 	{ Camera Serial Interface }
 	Serial Interface where you can connect a camera.
 
-Ethernet RJ45:
+EthernetRJ45:
 	Standard conector for Ethernet cable. Here you plug in your network.
 

@@ -1,70 +1,17 @@
 # Raspberrula Game - Raspberry Hack
 
+import sys
 
-# Create enum type for all the different components on the
-# raspberry pi
-class Enum(set):
-    def __getattr__(self, name):
-        if name in self:
-            return name
-        raise AttributeError
+dict = {}
 
-devices = Enum(["CVBS", "GPIO", "JACK", "LED", "DSI", "CPUGPU", 	\
-				"EthernetController", "USB", "USBPower", "HDMI", 	\
-				"CSI", "EthernetRJ45"])
-
-# Define functions associated with component 
-def cvbs():
-	print 1
-
-def gpio():
-	print 2
-
-def jack():
-	print 3
-
-def led():
-	print 4
-
-def dsi():
-	print 5
-
-def cgpu():
-	print 6
-
-def ethcnt():
-	print 7
-
-def usb():
-	print 8
-
-def usbpow():
-	print 9
-
-def hdmi():
-	print 10
-
-def csi():
-	print 11
-
-def ethrj45():
-	print 12
-
-# Dictionary used to select function by component name
-functions = {
-	devices.CVBS: cvbs,
-	devices.GPIO: gpio,
-	devices.JACK: jack,
-	devices.LED: led,
-	devices.DSI: dsi,
-	devices.CPUGPU: cgpu,
-	devices.EthernetController: ethcnt,
-	devices.USB: usb,
-	devices.USBPower: usbpow,
-	devices.HDMI: hdmi,
-	devices.CSI: csi,
-	devices.EthernetRJ45: ethrj45
-}
+def parse_file():
+	f = open('../others/Info.txt', 'r')
+	data = f.read()
+	splat = data.split("\n\n");
+	splat2 = len(splat) * [[]]
+	for i in range(len(splat) - 1):
+		splat2[i] = splat[i].split(":\n\t");
+		dict[splat2[i][0]] = splat2[i][1]
 
 # Class used to instantiate component with method to print
 # information
@@ -72,10 +19,10 @@ class DeviceInfo:
 	def __init__(self, devname):
 		self.devname = devname
 
-	def printInfo(self):
-		func = functions[self.devname]
-		func()
+	def getInfo(self):
+		return dict[self.devname] + "\n"
 
 #TODO: remove - just for testing purposes
-mydev = DeviceInfo("USB")
-mydev.printInfo()
+parse_file()
+mydev = DeviceInfo("CVBS")
+sys.stdout.write(mydev.getInfo())
