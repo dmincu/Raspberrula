@@ -23,7 +23,7 @@ class Game:
 				(self.SCREEN_WIDTH / 2,	\
 				self.SCREEN_HEIGHT / 2),	\
 				(1, 1),	\
-				3)
+				10)
 
 	def run(self):
 		while True:
