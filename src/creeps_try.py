@@ -17,8 +17,7 @@ class MoveRasp(Sprite):
 		self.screen = screen
 		self.speed = speed
 		self.base_image = pygame.image.load(img_filename).convert_alpha()
-		self.size = (2 * self.base_image.get_width(), 2 * self.base_image.get_height())
-		print self.size
+		self.size = (self.base_image.get_width(), self.base_image.get_height())
 		self.base_image = pygame.transform.scale(self.base_image, self.size)
 		self.image = self.base_image
 
