@@ -28,6 +28,10 @@ if __name__ == "__main__":
 		
 		screen.blit(backgroundImg, backgroundRect)
 		pygame.display.update()
+		pygame.time.delay(3000)
+		
+		#TODO: go to game module
+		sys.exit()
 
 
 
