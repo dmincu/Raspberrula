@@ -1,0 +1,13 @@
+GPIO : 67 146
+Display DSI : 44 254
+power : 40 400
+cpu/gpu : 280 285
+video cvbs : 273 139
+leduri : 576 160
+jack-audio : 404 95
+ethernet-controller: 466 188
+hdmi: 260 470
+camera-csi : 403 376
+ethernet-cable : 13 350
+usb: 538 234
+
