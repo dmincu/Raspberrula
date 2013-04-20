@@ -2,11 +2,25 @@ Raspberrula
 ===========
 
 Raspberry Pi Hackathon Project
-=======
-=======
+==============================
 
-Team members:
+Membrii echipa
+==============
+
 * **Diana Mincu**
 * **Serban Mihalcea**
 * **Simona Andreea Badoiu**
 * **Ionel Merca**
+
+Categorie
+=========
+
+Software
+
+Link github 
+===========
+
+https://github.com/dmincu/Raspberrula
+
+Descriere
+=========
