@@ -24,7 +24,6 @@ class Game:
 				self.SCREEN_HEIGHT / 2),	\
 				(1, 1),	\
 				1)
-
 	def run(self):
 		while True:
 			self.screen.blit(self.rasp_surface, (0,0))
@@ -33,7 +32,7 @@ class Game:
 			self.rasp.blitme()
 			pygame.display.flip()
 
-
+	"""
 	def input(self, events):
 		for event in events:
 			if event.type == QUIT:
@@ -45,10 +44,25 @@ class Game:
 				elif event.key == pygame.K_DOWN:
 					self.rasp.move_down()
 					print event
-				elif event.key == pygame.K_LEFT:
+				elif event.key == pygame.K_LEFT:	
 					self.rasp.move_left()
 					print event
 				elif event.key == pygame.K_RIGHT:
 					self.rasp.move_right()
 					print event
+	"""
 
+	def input(self,events):
+		for event in events:
+                        if event.type == QUIT:
+                                sys.exit(0)
+		keys = pygame.key.get_pressed()
+		if keys[K_LEFT]:
+			self.rasp.move_left()
+		if keys[K_RIGHT]:
+			self.rasp.move_right()
+		if keys[K_DOWN]:
+			self.rasp.move_down()
+		if keys[K_UP]:
+			self.rasp.move_up()
+				
