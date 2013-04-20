@@ -1,21 +1,25 @@
 import pygame, sys
 from pygame.locals import *
 
-width = 640
-height = 480
+width = 800
+height = 600
 
 if __name__ == "__main__":
 	pygame.init()
-	pygame.display.init()
+
 	fpsClock = pygame.time.Clock()
-	windowSurface = pygame.display.set_mode((width, height))
+	size = (width, height)
+	screen = pygame.display.set_mode(size)
 	pygame.display.set_caption("Raspberrula")
-	imgSurface = pygame.image.load('../Images/Raspberrula Intro.jpg');	
-	
+	backgroundImg = pygame.image.load("../Images/Raspberrula.Intro.Scaled.jpg").convert()
+	backgroundImg = pygame.transform.scale(backgroundImg, (width, height))	
+	backgroundRect = backgroundImg.get_rect()	
+
 	while True:
 		for event in pygame.event.get():
 			if event.type == QUIT:
 				pygame.quit()
 				sys.exit()
-
+		
+		screen.blit(backgroundImg, backgroundRect)
 		pygame.display.update()
