@@ -4,6 +4,7 @@ import pygame, sys
 from pygame.locals import *
 import easygui
 from info import *
+from joc import *
 
 width = 800
 height = 600
@@ -25,6 +26,9 @@ if __name__ == "__main__":
 	devices = Devices()
 	devices.add_all_devices()
 
+	# Initialize game
+	game = Game()
+
 	# Run Game
 	while True:
 		for event in pygame.event.get():
@@ -36,10 +40,7 @@ if __name__ == "__main__":
 		pygame.display.update()
 		pygame.time.delay(3000)
 
-		easygui.msgbox(devices.list[5].get_info(), title=devices.list[5].get_name())
+		#easygui.msgbox(devices.list[5].get_info(), title=devices.list[5].get_name())
 		
 		#TODO: go to game module
-		sys.exit()
-
-
-
+		game.run()
