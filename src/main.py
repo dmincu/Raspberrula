@@ -6,8 +6,8 @@ import easygui
 from info import *
 from joc import *
 
-width = 800
-height = 600
+width = 760
+height = 570
 
 if __name__ == "__main__":
 	# Initialize pygame module	

@@ -7,8 +7,8 @@ class Game:
 
 	def __init__(self):
 		pygame.init()
-		self.SCREEN_WIDTH = 800
-		self.SCREEN_HEIGHT = 600
+		self.SCREEN_WIDTH = 760
+		self.SCREEN_HEIGHT = 570
 		self.RASP_FILENAME = "rasp.png"
 		self.BG_COLOR = 150, 150, 80
 		self.window = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT)) 
