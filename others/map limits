@@ -1,78 +1,78 @@
-placuta
+PLACA:
 	20 82
 	615 82
 	20 488
 	615 488
-	
-gpio
+
+GPIO:
 	-11 34
 	267 34
 	-11 134
 	267 134
-	
-video cvbs
+
+CVBS:
 	278 33
 	401 33
 	278 184
 	401 184
-	
-audio jack
+
+JACK:
 	413 34
 	548 34
 	413 179
 	548 179
-	
-status leds
+
+LED:
 	513 34
 	648 34
 	549 150
 	648 150
-	
-display dsi
+
+DSI:
 	50 170
 	131 170
 	50 384
 	131 384
-	
-CPU/GPU
+
+CPUGPU:
 	229 207
 	364 207
 	364 364
 	229 364
-	
-ethernet controller
+
+EthernetController:
 	427 194
 	536 194
 	427 315
 	536 315
-	
-USB
+
+USB:
 	541 182
 	654 182
 	541 343
 	654 343
-	
-power
+
+USBPower:
 	-15 393
 	64 393
 	-15 508
 	64 508
-	
-hdmi
+
+HDMI:
 	258 397
 	402 397
 	258 537
 	402 537
-	
-camera csi
+
+CSI:
 	409 330
 	466 330
 	409 536
 	466 536
-	
-ethernet cable
+
+EthernetRJ45:
 	475 349
 	669 349
 	475 531
 	669 531
-	
+

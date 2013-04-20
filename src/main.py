@@ -27,7 +27,7 @@ if __name__ == "__main__":
 	devices.add_all_devices()
 
 	# Initialize game
-	game = Game()
+	game = Game(devices)
 
 	# Run Game
 	while True:
