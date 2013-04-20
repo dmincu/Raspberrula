@@ -2,6 +2,7 @@
 
 import pygame, sys
 from pygame.locals import *
+import easygui
 
 width = 800
 height = 600
@@ -29,6 +30,8 @@ if __name__ == "__main__":
 		screen.blit(backgroundImg, backgroundRect)
 		pygame.display.update()
 		pygame.time.delay(3000)
+
+		easygui.messagebox("This is a message!", title="simple gui")
 		
 		#TODO: go to game module
 		sys.exit()
