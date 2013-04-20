@@ -34,35 +34,27 @@ class MoveRasp(Sprite):
 			upper_limit = device.get_upper()
 			lower_limit = device.get_lower()
 			my_pos = self.pos
-			print self.pos, upper_limit, lower_limit, device.get_name()
 			
-			print device.get_name() + " " + 'PLACA' + "\n"
-			print cmp(device.get_name(), 'PLACA') == 0
 			if (cmp(device.get_name(), 'PLACA') == 0):
-				print "mori"
-				print device.get_name()
 				if (	(self.pos.x < upper_limit[0]
 				    or self.pos.x > lower_limit[0])
 				    or (self.pos.y < upper_limit[1]
 				    or self.pos.y > lower_limit[1])
 				   ):
 					self.collision = 1
-					print "coliziune"
 			else:
 				if (	self.pos.x > upper_limit[0]
 				    and self.pos.x < lower_limit[0]
 				    and self.pos.y > upper_limit[1]
 				    and self.pos.y < lower_limit[1]
 				   ):
-					self.collision = 1
-					print "coliziune"		
+					self.collision = 1		
 
 	def blitme(self):
 		self.screen.blit(self.image, self.pos);	
 
 	def move_down(self):
         	""" Move the raspberry down """
-		print self.collision
 		displacement = vec2d(0, self.speed)
 		self.pos += displacement
 		self.collisions()

@@ -52,34 +52,11 @@ class Game:
 			self.rasp.blitme()
 			pygame.display.update(Rect((self.rasp.pos.x - 10, self.rasp.pos.y - 10), (80, 80)))
 
-	"""
-	def input(self, events):
-		for event in events:
-			if event.type == QUIT:
-				sys.exit(0)
-			elif event.type == pygame.KEYDOWN:
-				if event.key == pygame.K_UP:
-					self.rasp.move_up()
-					print event
-				elif event.key == pygame.K_DOWN:
-					self.rasp.move_down()
-					print event
-				elif event.key == pygame.K_LEFT:	
-					self.rasp.move_left()
-					print event
-				elif event.key == pygame.K_RIGHT:
-					self.rasp.move_right()
-					print event
-					
-	"""
 
 	def input(self,events):
 		for event in events:
                         if event.type == QUIT:
                                 sys.exit(0)
-			else:
-				print event
-				print self.rasp.pos
 		keys = pygame.key.get_pressed()
 		if keys[K_LEFT]:
 			self.rasp.move_left()
