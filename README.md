@@ -24,3 +24,5 @@ https://github.com/dmincu/Raspberrula
 
 Descriere
 =========
+
+Ursilor le place zmeura. Configureaza Raspberry Pi-ul intr-un joc cu RaspBearsii nostrii.
