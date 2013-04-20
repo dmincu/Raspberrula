@@ -12,12 +12,12 @@ class Game:
 		self.RASP_FILENAME = "rasp.png"
 		self.BG_COLOR = 150, 150, 80
 		self.window = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT)) 
-		#pygame.display.set_caption('Raspberrula')
-		#self.screen = pygame.display.get_surface()
-		#self.rasp = "../images/Raspberrula.jpg"
-		#self.rasp_surface = pygame.image.load(self.rasp)
-		#self.rasp_surface = pygame.transform.scale(self.rasp_surface, (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
-		#self.screen.blit(self.rasp_surface, (0,0))
+		pygame.display.set_caption('Raspberrula')
+		self.screen = pygame.display.get_surface()
+		self.rasp = "../images/Raspberrula.jpg"
+		self.rasp_surface = pygame.image.load(self.rasp)
+		self.rasp_surface = pygame.transform.scale(self.rasp_surface, (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+		self.screen.blit(self.rasp_surface, (0,0))
 		self.rasp = MoveRasp(self.window,	\
 				self.RASP_FILENAME,	\
 				(self.SCREEN_WIDTH / 2,	\
@@ -27,8 +27,8 @@ class Game:
 
 	def run(self):
 		while True:
-			#self.screen.blit(self.rasp_surface, (0,0))
-			self.window.fill(self.BG_COLOR)
+			self.screen.blit(self.rasp_surface, (0,0))
+			#self.window.fill(self.BG_COLOR)
 			self.input(pygame.event.get())
 			self.rasp.blitme()
 			pygame.display.update()
