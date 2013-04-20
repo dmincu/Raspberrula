@@ -31,7 +31,7 @@ class Game:
 			self.window.fill(self.BG_COLOR)
 			self.input(pygame.event.get())
 			self.rasp.blitme()
-			pygame.display.flip()
+			pygame.display.update()
 
 	"""
 	def input(self, events):
