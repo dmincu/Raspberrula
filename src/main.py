@@ -28,3 +28,6 @@ if __name__ == "__main__":
 		
 		screen.blit(backgroundImg, backgroundRect)
 		pygame.display.update()
+
+
+
