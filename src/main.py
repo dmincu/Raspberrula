@@ -31,7 +31,7 @@ if __name__ == "__main__":
 		pygame.display.update()
 		pygame.time.delay(3000)
 
-		easygui.messagebox("This is a message!", title="simple gui")
+		easygui.msgbox("This is a message!", title="simple gui")
 		
 		#TODO: go to game module
 		sys.exit()
