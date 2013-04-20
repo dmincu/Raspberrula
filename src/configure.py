@@ -8,4 +8,7 @@ class DeviceConfigure:
 		self.devices = devices
 
 	def popup(self, device):
-		easygui.msgbox(device.get_info(), title = device.get_name())		
+		choices = ["Exit", "Configure"]
+		reply = easygui.buttonbox(device.get_info(), title = device.get_name(), choices = choices)
+		if cmp(reply, 'Configure') == 0:
+			reply = easygui.msgbox("Do Stuff", title = device.get_name(), ok_button = "Exit")
