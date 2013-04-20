@@ -13,16 +13,28 @@ def parse_file():
 		splat2[i] = splat[i].split(":\n\t");
 		dict[splat2[i][0]] = splat2[i][1]
 
-# Class used to instantiate component with method to print
+# Class used to instantiate component with method to get
 # information
+class Devices:
+	def __init__(self):
+		self.list = []
+		parse_file()
+
+	def add_device(self, devname):
+		self.list.append(DeviceInfo(devname))
+
+	def add_all_devices(self):
+		self.list = []
+		for key, value in dict.iteritems():
+			self.list.append(DeviceInfo(key))
+
 class DeviceInfo:
 	def __init__(self, devname):
 		self.devname = devname
+		self.info = dict[self.devname]
 
-	def getInfo(self):
-		return dict[self.devname] + "\n"
+	def get_name(self):
+		return self.devname
 
-#TODO: remove - just for testing purposes
-parse_file()
-mydev = DeviceInfo("CVBS")
-sys.stdout.write(mydev.getInfo())
+	def get_info(self):
+		return self.info + "\n"
