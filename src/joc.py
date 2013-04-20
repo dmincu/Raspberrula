@@ -28,10 +28,10 @@ class Game:
 	def run(self):
 		while True:
 			self.screen.blit(self.rasp_surface, (0,0))
-			#window.fill(BG_COLOR)
+			#self.window.fill(self.BG_COLOR)
 			self.input(pygame.event.get())
 			self.rasp.blitme()
-			pygame.display.flip()
+			pygame.display.update()
 
 	"""
 	def input(self, events):
