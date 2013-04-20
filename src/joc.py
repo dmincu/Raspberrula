@@ -25,8 +25,7 @@ class Game:
 				self.SCREEN_HEIGHT / 2),	\
 				(1, 1),	\
 				10,
-				self.devices)
-		self.rasp.collisions()
+				self.devices)	
 
 	def run(self):
 		while True:

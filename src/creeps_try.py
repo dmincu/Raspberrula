@@ -11,11 +11,12 @@ class MoveRasp(Sprite):
 	"""
 	def __init__(
 		self, screen, img_filename, init_position,
-		init_direction, speed):
+		init_direction, speed, devices):
 		
 		Sprite.__init__(self)
 		self.screen = screen
 		self.speed = speed
+		self.devices = devices.my_list
 		self.base_image = pygame.image.load(img_filename).convert_alpha()
 		self.size = (self.base_image.get_width(), self.base_image.get_height())
 		self.base_image = pygame.transform.scale(self.base_image, self.size)
@@ -25,6 +26,10 @@ class MoveRasp(Sprite):
 	# angle 0.
 	
 		self.pos = vec2d(init_position)
+
+	def collisions(self):
+		for device in self.devices:
+			print device.get_name()	
 
 	def blitme(self):
 		self.screen.blit(self.image, self.pos);	
