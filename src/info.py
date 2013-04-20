@@ -4,6 +4,7 @@ import sys
 
 devdict = {}
 limdict = {}
+portaldict = {}
 
 def parse_file():
 	f = open('../others/Info.txt', 'r')
@@ -11,7 +12,7 @@ def parse_file():
 	splat = data.split("\n\n")
 	splat2 = len(splat) * [[]]
 	for i in range(len(splat) - 1):
-		splat2[i] = splat[i].split(":\n\t");
+		splat2[i] = splat[i].split(":\n\t")
 		devdict[splat2[i][0]] = splat2[i][1]
 
 def parse_limits():
@@ -23,7 +24,14 @@ def parse_limits():
 		splat2[i] = splat[i].split(":\n\t")
 		limdict[splat2[i][0]] = splat2[i][1].split("\n\t")
 
-parse_limits()
+def parse_portal():
+	f = open('../others/portale', 'r')
+	data = f.read()
+	splat = data.split("\n\n")
+	splat2 = len(splat) * [[]]
+	for i in range(len(splat) - 1):
+		splat2[i] = splat[i].split(":\n\t")
+		portaldict[splat2[i][0]] = splat2[i][1]
 
 # Class used to instantiate component with method to get
 # information
@@ -32,6 +40,7 @@ class Devices:
 		self.my_list = []
 		parse_file()
 		parse_limits()
+		parse_portal()
 
 	def add_device(self, devname):
 		self.my_list.append(DeviceInfo(devname))
@@ -46,6 +55,7 @@ class DeviceInfo:
 		self.devname = devname
 		self.limits = limdict[self.devname]
 		self.info = devdict[self.devname]
+		self.portal = portaldict[self.devname]
 
 	def get_name(self):
 		return self.devname
@@ -55,6 +65,10 @@ class DeviceInfo:
 
 	def get_limits(self):
 		return self.limits
+
+	def get_portal_coord(self):
+		aux = self.portal.split(" ")
+		return [int(aux[0]), int(aux[1])]
 
 	def get_upper(self):
 		aux = self.limits[0].split(" ")
