@@ -5,8 +5,9 @@ from creeps_try import MoveRasp
 
 class Game:
 
-	def __init__(self):
+	def __init__(self, devices):
 		pygame.init()
+		self.devices = devices
 		self.SCREEN_WIDTH = 760
 		self.SCREEN_HEIGHT = 570
 		self.RASP_FILENAME = "rasp.png"
@@ -23,7 +24,9 @@ class Game:
 				(self.SCREEN_WIDTH / 2,	\
 				self.SCREEN_HEIGHT / 2),	\
 				(1, 1),	\
-				10)
+				10,
+				self.devices)
+		self.rasp.collisions()
 
 	def run(self):
 		while True:

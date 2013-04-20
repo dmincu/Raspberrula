@@ -29,17 +29,17 @@ parse_limits()
 # information
 class Devices:
 	def __init__(self):
-		self.list = []
+		self.my_list = []
 		parse_file()
 		parse_limits()
 
 	def add_device(self, devname):
-		self.list.append(DeviceInfo(devname))
+		self.my_list.append(DeviceInfo(devname))
 
 	def add_all_devices(self):
-		self.list = []
+		self.my_list = []
 		for key, value in devdict.iteritems():
-			self.list.append(DeviceInfo(key))
+			self.my_list.append(DeviceInfo(key))
 
 class DeviceInfo:
 	def __init__(self, devname):
