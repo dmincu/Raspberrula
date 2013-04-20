@@ -57,7 +57,9 @@ class DeviceInfo:
 		return self.limits
 
 	def get_upper(self):
-		return self.limits[0].split(" ")
+		aux = self.limits[0].split(" ")
+		return [int(aux[0]), int(aux[1])]
 	
 	def get_lower(self):
-		return self.limits[len(self.limits) - 1].split(" ")
+		aux = self.limits[len(self.limits) - 1].split(" ")
+		return [int(aux[0]), int(aux[1])]

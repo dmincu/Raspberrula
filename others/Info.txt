@@ -1,3 +1,6 @@
+PLACA:
+	Placa de Baza
+
 CVBS:
 	{ Color, Video, Blanking, and Sync }
 	CVBS is just a fancy term for composite video. 
