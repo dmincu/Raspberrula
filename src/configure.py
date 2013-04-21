@@ -74,6 +74,8 @@ class DeviceConfigure:
 			elif cmp(device.get_name(), 'USBPower') == 0:
 				reply = easygui.msgbox("Power is On", title = "Power Info")
 			elif cmp(device.get_name(), 'EthernetController') == 0:
+				choices = ["Connect through SSH"]
+				reply = easygui.buttonbox("Connection", choices=choices)
 				self.ethcontr()
 			else:
 				reply = easygui.msgbox("No other info(Sorry:))", title = device.get_name(), ok_button = "Exit")
