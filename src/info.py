@@ -6,6 +6,7 @@ devdict = {}
 limdict = {}
 portaldict = {}
 
+# Parser functions for device info and collision detection
 def parse_file():
 	f = open('../others/Info.txt', 'r')
 	data = f.read()

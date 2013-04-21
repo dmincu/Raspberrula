@@ -1,34 +1,42 @@
+# Raspberrula Game - Raspberry Hack
+
 import pygame
 import os
 import sys
 import easygui
 from pygame.locals import *
-from creeps_try import MoveRasp
+from raspberry import MoveRasp
 from portal import DrawPortal
 from configure import DeviceConfigure
 
 
 class Game:
-
+	"""
+		Class that implements game functionality and draw-ing of objects
+	"""
 	def __init__(self, devices):
 		pygame.init()
+
+		# Set class variables
 		self.portals = []
 		self.devices = devices
-		self.SCREEN_WIDTH = 760
-		self.SCREEN_HEIGHT = 570
-		self.RASP_FILENAME = "../images/rasp.png"
-		self.BG_COLOR = 150, 150, 80
-		self.window = pygame.display.set_mode((self.SCREEN_WIDTH, self.SCREEN_HEIGHT)) 
+		self.screen_width = 760
+		self.screen_height = 570
+		self.rasp_filename = "../images/rasp.png"
+		self.bg_color = 150, 150, 80
+		self.window = pygame.display.set_mode((self.screen_width, self.screen_height))
+
+		# Init game window
 		pygame.display.set_caption('Raspberrula')
 		self.screen = pygame.display.get_surface()
 		self.rasp = "../images/Raspberrula.jpg"
 		self.rasp_surface = pygame.image.load(self.rasp)
-		self.rasp_surface = pygame.transform.scale(self.rasp_surface, (self.SCREEN_WIDTH, self.SCREEN_HEIGHT))
+		self.rasp_surface = pygame.transform.scale(self.rasp_surface, (self.screen_width, self.screen_height))
 		self.screen.blit(self.rasp_surface, (0,0))
 		self.rasp = MoveRasp(self.window,	\
-				self.RASP_FILENAME,	\
-				(self.SCREEN_WIDTH / 2,	\
-				self.SCREEN_HEIGHT / 2),	\
+				self.rasp_filename,	\
+				(self.screen_width / 2,	\
+				self.screen_height / 2),	\
 				(1, 1),	\
 				5,
 				self.devices)
@@ -49,9 +57,10 @@ class Game:
 		for portal in self.portals:
 			portal.blitme()
 		pygame.display.update()
+
+		# Draw objects on screen
 		while True:
 			self.screen.blit(self.rasp_surface, (0,0))
-			#self.window.fill(self.BG_COLOR)
 			self.input(pygame.event.get())
 			for portal in self.portals:
                         	portal.blitme()

@@ -57,6 +57,8 @@ class DeviceConfigure:
 	def popup(self, device):
 		choices = ["Exit", "Others(Info/Config)"]
 		reply = easygui.buttonbox(device.get_info(), title = device.get_name(), choices = choices)
+		
+		# Select between all types of components to see which window to draw
 		if cmp(reply, 'Others(Info/Config)') == 0:
 			if cmp(device.get_name(), 'EthernetRJ45') == 0:
 				subprocess.call("./scripts/rj45.sh > buff", shell=True);
@@ -77,7 +79,6 @@ class DeviceConfigure:
 					reply = easygui.msgbox(f.read(), title = "GPU Info")
 					f.close()
 				else:
-					print "mata"
 					subprocess.call("./scripts/sysload.sh > buff", shell=True);
 					f = open("buff","r");
 					reply = easygui.msgbox(f.read(), title = "System Load Info")
