@@ -1,13 +1,16 @@
 # Raspberrula Game - Raspberry Hack
-import os, sys
+
+import os
+import sys
+import pygame
 from random import randint, choice
 from math import sin, cos, radians
-import pygame
 from pygame.sprite import Sprite
 from vec2d import vec2d
 
 class DrawPortal(Sprite):
-        """ A raspberry controlled by pointing arrows
+        """ 
+			Class that implements draw functionality for Info RaspBears
         """
         def __init__(
                 self, screen, img_filename, init_position):
