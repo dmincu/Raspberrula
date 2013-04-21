@@ -1,6 +1,5 @@
 #!/bin/bash
 
-top  > topbuff &
-kill -kill $(pidof top)
+top -n 1 > topbuff
 head -6 topbuff
 rm topbuff

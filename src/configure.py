@@ -78,10 +78,10 @@ class DeviceConfigure:
 					f.close()
 				else:
 					print "mata"
-					#subprocess.call("./scripts/sysload.sh > buff", shell=True);
-					#f = open("buff","r");
-					#reply = easygui.msgbox(f.read(), title = "System Load Info")
-					#f.close()
+					subprocess.call("./scripts/sysload.sh > buff", shell=True);
+					f = open("buff","r");
+					reply = easygui.msgbox(f.read(), title = "System Load Info")
+					f.close()
 			elif cmp(device.get_name(), 'USB') == 0:
 				subprocess.call("./scripts/usb.sh > buff", shell=True);
 				f = open("buff","r");
