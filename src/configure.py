@@ -10,28 +10,44 @@ class DeviceConfigure:
 		self.devices = devices
 		
 	def ethcontr(self):
+		# Set parameters for input box
 		msg = "Enter details for connection to another computer"
 		title = "Ethernet Controller"
 		fieldNames = ["Computer IP", "User"]
 		fieldValues = []
 		fieldValues = easygui.multenterbox(msg, title, fieldNames)
+		if fieldValues == None:
+			return
 		reply = easygui.passwordbox("Enter password")
-		print reply
+		if reply == None:
+			return	
+	
+		# Connect through SSH
 		ssh = paramiko.SSHClient()
 		ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+		
 		if (fieldValues[0] == "" or fieldValues[1] == ""):
 			return
+		
 		ssh.connect(fieldValues[0], username=fieldValues[1], password=reply)
+		
 		while True:
+			# Set parameters for query
 			msg2 = "Enter command to run"
 			title2 = "Connected to " + fieldValues[1] + "@" + fieldValues[0]
 			fieldNames2 = ["Command"]
 			fieldValues2 = []
 			fieldValues2 = easygui.multenterbox(msg2, title2, fieldNames2)
+			
 			if (fieldValues2 == None or fieldValues2[0] == ""):
 				break
+			
+			if cmp(fieldValues2[0], 'exit') == 0:
+				break
+
 			stdin, stdout, stderr = ssh.exec_command(fieldValues2[0])
 			
+			# Compose output
 			output = ""
 			for line in stdout:
 				output = output + "\n" + line
