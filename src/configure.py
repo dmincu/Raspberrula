@@ -66,7 +66,7 @@ class DeviceConfigure:
 				reply = easygui.msgbox(f.read(), title = "Ethernet Info")
 				f.close()
 			elif cmp(device.get_name(), 'CPUGPU') == 0:
-				choices = ["CPU","GPU","SystemLoad"]
+				choices = ["CPU","GPU","SystemLoad","Presentation"]
 				reply = easygui.buttonbox("Choose..", choices=choices)
 				if cmp(reply, 'CPU') == 0:
 					subprocess.call("./scripts/cpu.sh > buff", shell=True);
@@ -78,11 +78,13 @@ class DeviceConfigure:
 					f = open("buff","r");
 					reply = easygui.msgbox(f.read(), title = "GPU Info")
 					f.close()
-				else:
+				elif cmp(reply, "SystemLoad") == 0:
 					subprocess.call("./scripts/sysload.sh > buff", shell=True);
 					f = open("buff","r");
 					reply = easygui.msgbox(f.read(), title = "System Load Info")
 					f.close()
+				else:
+					subprocess.call("./scripts/processing_unit.sh", shell=True);
 			elif cmp(device.get_name(), 'USB') == 0:
 				subprocess.call("./scripts/usb.sh > buff", shell=True);
 				f = open("buff","r");
