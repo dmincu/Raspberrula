@@ -38,7 +38,7 @@ class Game:
 				(self.screen_width / 2,	\
 				self.screen_height / 2),	\
 				(1, 1),	\
-				5,
+				1,
 				self.devices)
 		self.devconf = DeviceConfigure(self.devices)		
 

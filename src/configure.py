@@ -93,8 +93,11 @@ class DeviceConfigure:
 			elif cmp(device.get_name(), 'USBPower') == 0:
 				reply = easygui.msgbox("Power is On", title = "Power Info")
 			elif cmp(device.get_name(), 'EthernetController') == 0:
-				choices = ["Connect through SSH"]
+				choices = ["Connect through SSH", "Presentation"]
 				reply = easygui.buttonbox("Connection", choices=choices)
-				self.ethcontr()
+				if cmp(reply, 'Connect through SSH') == 0:
+					self.ethcontr()
+				else:
+					subprocess.call("./scripts/memory.sh", shell=True);
 			else:
 				reply = easygui.msgbox("No other info(Sorry:))", title = device.get_name(), ok_button = "Exit")
